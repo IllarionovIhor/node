@@ -1,0 +1,37 @@
+{{> header}}
+<h1>Users!:</h1>
+<div class="containter mx-5">
+    <div class="row ">
+        {{#each users}}
+            <form style="min-width: 200px;" class="card col-auto mx-auto my-1 bg-danger-subtle" action="/users/update/{{this._id}}" method="post">
+                <div class="card-body">
+                    <h5 class="card-title"> <input type="text" value="{{this.name}}" name="name" required/> <button type="submit" class="float-end btn btn-dark"> Update </button> </h5>
+                    <p class="card-text">Email: <input type="email" value="{{this.email}}" name="email" required/> </p>
+                    <p class="card-text">Age: <input type="number" value="{{this.age}}" name="age" required/> </p>
+                    <p class="card-text">Password: <input type="text" value="{{this.password}}" name="password" required/> </p>
+                </div>
+            </form>
+        {{/each}}
+    </div>
+</div>
+
+
+<h1>Tasks!:</h1>
+<div class="containter mx-5">
+    <div class="row ">
+        {{#each tasks}}
+            <form style="min-width: 200px;" class="card col-auto mx-auto my-1 bg-danger-subtle" action="/tasks/update/{{this._id}}" method="post">
+                <div class="card-body">
+                    <h5 class="card-title"> <input type="text" value="{{this.title}}" name="title" required/> <button class="float-end btn btn-dark"> Update </button> </h5>
+                    <p class="card-text">Description: <input type="text" value="{{this.description}}" name="description" required/> </p>
+                    <p class="card-text">Completed: <select name="completed">
+                        <option value="false" {{#if this.completed}} {{else}} selected {{/if}}> False</option>
+                        <option value="true" {{#if this.completed}} selected {{/if}}> True</option>
+                    </select> </p>
+                </div>
+            </form>
+        {{/each}}
+    </div>
+</div>
+
+{{> footer}}

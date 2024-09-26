@@ -1,0 +1,33 @@
+{{> header}}
+<h1>Users!:</h1>
+<div class="containter mx-5">
+    <div class="row ">
+        {{#each users}}
+            <form style="min-width: 200px;" class="card col-auto mx-auto my-1 bg-danger-subtle" action="/users/delete/{{this._id}}" method="post">
+                <div class="card-body">
+                    <h5 class="card-title">{{this.name}} <button class="float-end btn btn-dark"> Delete </button> </h5>
+                    <p class="card-text">Email: {{this.email}} </p>
+                    <p class="card-text">Age: {{this.age}} </p>
+                </div>
+            </form>
+        {{/each}}
+    </div>
+</div>
+
+
+<h1>Tasks!:</h1>
+<div class="containter mx-5">
+    <div class="row ">
+        {{#each tasks}}
+            <form style="min-width: 200px;" class="card col-auto mx-auto my-1 bg-danger-subtle" action="/tasks/delete/{{this._id}}" method="post">
+                <div class="card-body">
+                    <h5 class="card-title">{{this.title}} <button class="float-end btn btn-dark"> Delete </button> </h5>
+                    <p class="card-text">Description: {{this.description}} </p>
+                    <p class="card-text">Completed: {{this.completed}} </p>
+                </div>
+            </form>
+        {{/each}}
+    </div>
+</div>
+
+{{> footer}}
